@@ -34,7 +34,7 @@ Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'klen/rope-vim'
 "Plugin 'davidhalter/jedi-vim'
-Plugin 'ervandew/supertab'
+"Plugin 'ervandew/supertab'
 "code folding
 "Plugin 'tmhedberg/SimpylFold'
 
@@ -55,6 +55,7 @@ let g:hl_matchit_enable_on_vim_startup = 1
 
 "custom keys
 let mapleader=","
+let maplocalleader=","
 noremap <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 noremap <leader>k  :YcmCompleter GetDoc<CR>
 
@@ -74,15 +75,26 @@ nnoremap <C-l> <C-w><C-l>
 nnoremap <C-h> <C-w><C-h>
 "nnoremap <C-j> <C-w><C-w>
 "nnoremap <C-k> <C-w><C-k>
+"在本行能选择，修改，删除括号里的内容
+:onoremap ih( :<c-u>normal! f(vi(<cr>
+:onoremap ih[ :<c-u>normal! f[vi[<cr>
+:onoremap ih{ :<c-u>normal! f{vi{<cr>
+:onoremap ih" :<c-u>normal! f"vi"<cr>
+:onoremap ih' :<c-u>normal! f'vi'<cr>
+:onoremap il( :<c-u>normal! F)vi(<cr>
+:onoremap il[ :<c-u>normal! F]vi[<cr>
+:onoremap il{ :<c-u>normal! F}vi{<cr>
+:onoremap il" :<c-u>normal! F"vi"<cr>
+:onoremap il' :<c-u>normal! F'vi'<cr>
 
 "I don't like swap files
 set noswapfile
 
 "turn on numbering
-set bg=dark
-set nu
+set background=dark
+set number
 set relativenumber
-set mouse=a
+"set mouse=a
 set autoindent
 set hlsearch
 
@@ -92,7 +104,7 @@ set hlsearch
 "set nowrap
 
 "突出显示行和列
-"set cursorline
+set cursorline
 "set cursorcolumn
 
 set showtabline=1
@@ -111,9 +123,14 @@ EOF
 
 "it would be nice to set tag files by the active virtualenv here
 ":set tags=~/mytags "tags for ctags and taglist
+set tags=./tags,tags;$HOME
+command! SystemTags :set tags+=~/.vim/sys_tags
+command! KernelTags :set tags+=~/.vim/kernel_tags
 "omnicomplete
 set autochdir
+
 autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType python     nnoremap <buffer> <localleader>c I#<esc>
 "au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 
 "------------Start Python PEP 8 stuff----------------
@@ -161,3 +178,7 @@ set backspace=indent,eol,start
 
 "js stuff"
 autocmd FileType javascript setlocal shiftwidth=4 tabstop=4
+autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
+
+"html stuff"
+autocmd BufNewFile,BufRead *.html setlocal nowrap
