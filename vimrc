@@ -39,8 +39,8 @@ Plugin 'klen/rope-vim'
 "Plugin 'tmhedberg/SimpylFold'
 
 "Colors!!!
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'jnurmine/Zenburn'
+"Plugin 'altercation/solarized'
+"Plugin 'jnurmine/Zenburn'
 
 call vundle#end()
 
@@ -60,7 +60,9 @@ noremap <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 noremap <leader>k  :YcmCompleter GetDoc<CR>
 
 "call togglebg#map("<F5>")
-colorscheme desert
+"colorscheme desert
+"colorscheme murphy
+"colorscheme molokai
 set guifont=Monaco:h14
 
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
@@ -76,16 +78,16 @@ nnoremap <C-h> <C-w><C-h>
 "nnoremap <C-j> <C-w><C-w>
 "nnoremap <C-k> <C-w><C-k>
 "在本行能选择，修改，删除括号里的内容
-:onoremap ih( :<c-u>normal! f(vi(<cr>
-:onoremap ih[ :<c-u>normal! f[vi[<cr>
-:onoremap ih{ :<c-u>normal! f{vi{<cr>
-:onoremap ih" :<c-u>normal! f"vi"<cr>
-:onoremap ih' :<c-u>normal! f'vi'<cr>
-:onoremap il( :<c-u>normal! F)vi(<cr>
-:onoremap il[ :<c-u>normal! F]vi[<cr>
-:onoremap il{ :<c-u>normal! F}vi{<cr>
-:onoremap il" :<c-u>normal! F"vi"<cr>
-:onoremap il' :<c-u>normal! F'vi'<cr>
+onoremap ih( :<c-u>normal! f(vi(<cr>
+onoremap ih[ :<c-u>normal! f[vi[<cr>
+onoremap ih{ :<c-u>normal! f{vi{<cr>
+onoremap ih" :<c-u>normal! f"vi"<cr>
+onoremap ih' :<c-u>normal! f'vi'<cr>
+onoremap il( :<c-u>normal! F)vi(<cr>
+onoremap il[ :<c-u>normal! F]vi[<cr>
+onoremap il{ :<c-u>normal! F}vi{<cr>
+onoremap il" :<c-u>normal! F"vi"<cr>
+onoremap il' :<c-u>normal! F'vi'<cr>
 
 "I don't like swap files
 set noswapfile
@@ -97,6 +99,7 @@ set relativenumber
 "set mouse=a
 set autoindent
 set hlsearch
+colorscheme molokai
 
 "设置显示结尾符号
 "set list
@@ -105,7 +108,7 @@ set hlsearch
 
 "突出显示行和列
 set cursorline
-"set cursorcolumn
+set cursorcolumn
 
 set showtabline=1
 
@@ -129,6 +132,8 @@ command! KernelTags :set tags+=~/.vim/kernel_tags
 "omnicomplete
 set autochdir
 
+augroup filetype_python
+autocmd!
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType python     nnoremap <buffer> <localleader>c I#<esc>
 "au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
@@ -175,6 +180,7 @@ set backspace=indent,eol,start
 "use space to open folds
 "nnoremap <space> za 
 "----------Stop python PEP 8 stuff--------------
+augroup END
 
 "js stuff"
 autocmd FileType javascript setlocal shiftwidth=4 tabstop=4
