@@ -6,7 +6,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 "git interface
-Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 "filesystem
 Plugin 'scrooloose/nerdtree'
@@ -25,8 +25,7 @@ Plugin 'nelstrom/vim-markdown-preview'
 Plugin 'nvie/vim-flake8'
 Plugin 'vim-scripts/Pydiction'
 Plugin 'vim-scripts/indentpython.vim'
-Plugin 'scrooloose/syntastic'
-"Plugin 'lepture/vim-jinja'
+"Plugin 'scrooloose/syntastic'
 Plugin 'Glench/Vim-Jinja2-Syntax'
 
 "auto-completion stuff
@@ -41,6 +40,7 @@ Plugin 'klen/rope-vim'
 "Colors!!!
 "Plugin 'altercation/solarized'
 "Plugin 'jnurmine/Zenburn'
+"Plugin 'grey2'
 
 call vundle#end()
 
@@ -62,7 +62,6 @@ noremap <leader>k  :YcmCompleter GetDoc<CR>
 "call togglebg#map("<F5>")
 "colorscheme desert
 "colorscheme murphy
-"colorscheme molokai
 set guifont=Monaco:h14
 
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
@@ -70,6 +69,8 @@ noremap <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+
+"给选中的部分加引号
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 vnoremap <leader>" ma<esc>`<i"<esc>`>a"<esc>
 noremap <F5> :Tlist<CR>
@@ -77,6 +78,7 @@ nnoremap <C-l> <C-w><C-l>
 nnoremap <C-h> <C-w><C-h>
 "nnoremap <C-j> <C-w><C-w>
 "nnoremap <C-k> <C-w><C-k>
+"操作映射
 "在本行能选择，修改，删除括号里的内容
 onoremap ih( :<c-u>normal! f(vi(<cr>
 onoremap ih[ :<c-u>normal! f[vi[<cr>
@@ -89,6 +91,7 @@ onoremap il{ :<c-u>normal! F}vi{<cr>
 onoremap il" :<c-u>normal! F"vi"<cr>
 onoremap il' :<c-u>normal! F'vi'<cr>
 
+set helplang=en
 "I don't like swap files
 set noswapfile
 
@@ -98,8 +101,10 @@ set number
 set relativenumber
 "set mouse=a
 set autoindent
-set hlsearch
+set hlsearch incsearch
+set expandtab 
 colorscheme molokai
+"colorscheme grey2
 
 "设置显示结尾符号
 "set list
@@ -188,3 +193,5 @@ autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
 
 "html stuff"
 autocmd BufNewFile,BufRead *.html setlocal nowrap
+autocmd BufNewFile,BufRead *.html setlocal textwidth=0
+autocmd FileType jinjia setlocal shiftwidth=4 tabstop=4
