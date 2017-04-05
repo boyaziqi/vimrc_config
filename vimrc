@@ -36,12 +36,7 @@ Plugin 'klen/rope-vim'
 "Plugin 'ervandew/supertab'
 "code folding
 "Plugin 'tmhedberg/SimpylFold'
-
-"Colors!!!
-"Plugin 'altercation/solarized'
-"Plugin 'jnurmine/Zenburn'
-"Plugin 'grey2'
-
+Plugin 'ShowTrailingWhitespace'
 call vundle#end()
 
 filetype plugin indent on    " enables filetype detection
@@ -60,8 +55,6 @@ noremap <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 noremap <leader>k  :YcmCompleter GetDoc<CR>
 
 "call togglebg#map("<F5>")
-"colorscheme desert
-"colorscheme murphy
 set guifont=Monaco:h14
 
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
@@ -94,6 +87,7 @@ onoremap il' :<c-u>normal! F'vi'<cr>
 set helplang=en
 "I don't like swap files
 set noswapfile
+syntax on
 
 "turn on numbering
 set background=dark
@@ -102,9 +96,10 @@ set relativenumber
 "set mouse=a
 set autoindent
 set hlsearch incsearch
-set expandtab 
+set shiftwidth=4
+set tabstop=4
+set expandtab
 colorscheme molokai
-"colorscheme grey2
 
 "设置显示结尾符号
 "set list
@@ -161,7 +156,7 @@ au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 " Wrap text after a certain number of characters
-au BufRead,BufNewFile *.py,*.pyw, set textwidth=100
+au BufRead,BufNewFile *.py,*.pyw, set textwidth=79
 
 " Use UNIX (\n) line endings.
 au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
@@ -183,7 +178,7 @@ set backspace=indent,eol,start
 "Folding based on indentation:
 "autocmd FileType python set foldmethod=indent
 "use space to open folds
-"nnoremap <space> za 
+"nnoremap <space> za
 "----------Stop python PEP 8 stuff--------------
 augroup END
 
@@ -192,6 +187,5 @@ autocmd FileType javascript setlocal shiftwidth=4 tabstop=4
 autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
 
 "html stuff"
-autocmd BufNewFile,BufRead *.html setlocal nowrap
-autocmd BufNewFile,BufRead *.html setlocal textwidth=0
+autocmd BufNewFile,BufRead *.html setlocal textwidth=0 nowrap
 autocmd FileType jinjia setlocal shiftwidth=4 tabstop=4
