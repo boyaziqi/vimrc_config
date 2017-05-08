@@ -6,21 +6,18 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 "git interface
-"Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 "filesystem
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'kien/ctrlp.vim' 
+Plugin 'kien/ctrlp.vim'
 
 "html
-"  isnowfy only compatible with python not python3
+"isnowfy only compatible with python not python3
 Plugin 'MatchTag'
 Plugin 'matchit.zip'
-Plugin 'isnowfy/python-vim-instant-markdown'
-Plugin 'jtratner/vim-flavored-markdown'
-Plugin 'suan/vim-instant-markdown'
-Plugin 'nelstrom/vim-markdown-preview'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 "python sytax checker
 Plugin 'nvie/vim-flake8'
 Plugin 'vim-scripts/Pydiction'
@@ -32,10 +29,6 @@ Plugin 'Glench/Vim-Jinja2-Syntax'
 "Plugin 'klen/python-mode'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'klen/rope-vim'
-"Plugin 'davidhalter/jedi-vim'
-"Plugin 'ervandew/supertab'
-"code folding
-"Plugin 'tmhedberg/SimpylFold'
 Plugin 'ShowTrailingWhitespace'
 call vundle#end()
 
@@ -55,7 +48,10 @@ noremap <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 noremap <leader>k  :YcmCompleter GetDoc<CR>
 
 "call togglebg#map("<F5>")
-set guifont=Monaco:h14
+set guifont=Monaco:h11
+
+" molokai背景色
+let g:rehash256 = 1
 
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 noremap <C-n> :NERDTreeToggle<CR>
@@ -69,7 +65,8 @@ vnoremap <leader>" ma<esc>`<i"<esc>`>a"<esc>
 noremap <F5> :Tlist<CR>
 nnoremap <C-l> <C-w><C-l>
 nnoremap <C-h> <C-w><C-h>
-"nnoremap <C-j> <C-w><C-w>
+noremap <C-y> "+y
+noremap <C-x> "+p
 "nnoremap <C-k> <C-w><C-k>
 "操作映射
 "在本行能选择，修改，删除括号里的内容
@@ -87,7 +84,6 @@ onoremap il' :<c-u>normal! F'vi'<cr>
 set helplang=en
 "I don't like swap files
 set noswapfile
-syntax on
 
 "turn on numbering
 set background=dark
@@ -99,6 +95,7 @@ set hlsearch incsearch
 set shiftwidth=4
 set tabstop=4
 set expandtab
+set ruler
 colorscheme molokai
 
 "设置显示结尾符号
@@ -111,6 +108,11 @@ set cursorline
 set cursorcolumn
 
 set showtabline=1
+set nofoldenable
+
+"搜索是忽略大小写,禁止从头开始搜索
+set ignorecase smartcase
+set nowrapscan
 
 "python with virtualenv support
 py << EOF
@@ -135,7 +137,8 @@ set autochdir
 augroup filetype_python
 autocmd!
 autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType python     nnoremap <buffer> <localleader>c I#<esc>
+autocmd FileType python     nnoremap <buffer> <localleader>c I #<esc>
+autocmd FileType python     nnoremap <buffer> <localleader>dc ^2x<esc>
 "au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 
 "------------Start Python PEP 8 stuff----------------
@@ -184,7 +187,8 @@ augroup END
 
 "js stuff"
 autocmd FileType javascript setlocal shiftwidth=4 tabstop=4
-autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
+autocmd FileType javascript nnoremap <buffer> <localleader>c I //<esc>
+autocmd FileType javascript nnoremap <buffer> <localleader>dc ^3x<esc>
 
 "html stuff"
 autocmd BufNewFile,BufRead *.html setlocal textwidth=0 nowrap
