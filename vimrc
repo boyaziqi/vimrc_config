@@ -12,6 +12,7 @@ Plugin 'airblade/vim-gitgutter'
 "filesystem
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'plasticboy/vim-markdown'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'kien/ctrlp.vim'
 
@@ -19,7 +20,7 @@ Plugin 'kien/ctrlp.vim'
 "isnowfy only compatible with python not python3
 Plugin 'MatchTag'
 Plugin 'godlygeek/tabular'
-Plugin 'jtratner/vim-flavored-markdown'
+"Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'vimwiki/vimwiki'
 
@@ -48,6 +49,15 @@ Plugin 'chriskempson/base16-vim'
 "code read
 Plugin 'majutsushi/tagbar'
 Plugin 'rking/ag.vim'
+
+"js hightlight
+Plugin 'pangloss/vim-javascript'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'othree/yajs'
+
+"comment
+Plugin 'tpope/vim-commentary'
+"Plugin 'Raimondi/delimitMate'
 call vundle#end()
 
 filetype plugin indent on    " enables filetype detection
@@ -89,6 +99,7 @@ colorscheme molokai
 "突出显示行和列
 set cursorline
 set cursorcolumn
+set backupcopy=yes
 
 set showtabline=1
 set nofoldenable
@@ -166,6 +177,7 @@ let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#buffer_nr_show = 0
 
 "这个是安装字体后 必须设置此项"
+"需要安装字体https://github.com/powerline/fonts
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
@@ -181,6 +193,10 @@ let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.notexists = '∄'
 let g:airline_symbols.whitespace = 'Ξ'
+
+" mxw/vim-jsx
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+let g:syntastic_javascript_checkers = ['eslint']
 " }}}
 
 "python with virtualenv support
@@ -207,8 +223,6 @@ set autochdir
 augroup filetype_python
 autocmd!
 autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType python nnoremap <buffer> <localleader>c I #<esc>
-autocmd FileType python nnoremap <buffer> <localleader>dc ^2x<esc>
 "au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 
 "------------Start Python PEP 8 stuff----------------
@@ -265,15 +279,13 @@ augroup javascript
     autocmd!
     autocmd FileType javascript setlocal textwidth=120
     autocmd FileType javascript setlocal shiftwidth=4 tabstop=4
-    autocmd FileType javascript nnoremap <buffer> <localleader>c I //<esc>
-    autocmd FileType javascript nnoremap <buffer> <localleader>dc ^3x<esc>
 augroup END
 " }}}
 
 " html file settings ----------------------- {{{
 augroup html
     autocmd!
-    autocmd BufNewFile,BufRead *.html setlocal textwidth=120
+    autocmd FileType html setlocal shiftwidth=4 tabstop=4
     autocmd FileType jinjia setlocal shiftwidth=4 tabstop=4
 augroup END
 " }}}
@@ -281,7 +293,7 @@ augroup END
 " makedown file settings ------------------ {{{
 augroup markdown
     autocmd!
-    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+    "au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
 " }}}
 
