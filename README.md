@@ -16,3 +16,8 @@ vim 配置文件，支持python，js, makedown
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py
 ```
+
+### 其他
+
+- zsh 打开vim 模式，向上箭头不能根据已经输入的字符过滤历史记录
+解放方案参考[我的GitHub Page](https://boyaziqi.github.io/zshda-kai-vimo-shi-upxiang-shang-jian-tou-bu-neng-an-zi-mo-shi-sou-suo-jie-jue-fang-fa.html)
