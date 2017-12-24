@@ -20,4 +20,4 @@ cd ~/.vim/bundle/YouCompleteMe
 ### 其他
 
 - zsh 打开vim 模式，向上箭头不能根据已经输入的字符过滤历史记录
-解放方案参考[我的GitHub Page](https://boyaziqi.github.io/zshda-kai-vimo-shi-upxiang-shang-jian-tou-bu-neng-an-zi-mo-shi-sou-suo-jie-jue-fang-fa.html)
+解决方案参考[我的GitHub Page](https://boyaziqi.github.io/zshda-kai-vimo-shi-upxiang-shang-jian-tou-bu-neng-an-zi-mo-shi-sou-suo-jie-jue-fang-fa.html)
