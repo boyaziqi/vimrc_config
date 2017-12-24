@@ -8,6 +8,8 @@ vim 配置文件，支持python，js, makedown
 
 - 需安装[powerline-font](https://github.com/powerline/fonts)解决状态栏乱码
 
+- 需安装 [molokai](https://github.com/tomasr/molokai) 主题
+
 - [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)需要安装相应服务
 
 ```bash
