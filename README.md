@@ -10,7 +10,7 @@ vim 配置文件，支持python，js, makedown
 
 - 需安装 [molokai](https://github.com/tomasr/molokai) 主题
 
-- [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)需要安装相应服务
+- [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) 需要安装相应服务并启动
 
 ```bash
 cd ~/.vim/bundle/YouCompleteMe
