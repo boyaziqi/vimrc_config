@@ -20,9 +20,9 @@ Plugin 'kien/ctrlp.vim'
 "isnowfy only compatible with python not python3
 Plugin 'MatchTag'
 Plugin 'godlygeek/tabular'
-"Plugin 'jtratner/vim-flavored-markdown'
+" Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'suan/vim-instant-markdown'
-Plugin 'vimwiki/vimwiki'
+" Plugin 'vimwiki/vimwiki'
 
 "python sytax checker
 Plugin 'nvie/vim-flake8'

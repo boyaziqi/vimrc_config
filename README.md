@@ -12,6 +12,8 @@ vim 配置文件，支持python，js, makedown
 
 - [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) 需要安装相应服务并启动
 
+- [vim-instan-markdown](https://github.com/suan/vim-instant-markdown) 需执行命令 `npm -g install instant-markdown-d` 安装依赖
+
 ```bash
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py
