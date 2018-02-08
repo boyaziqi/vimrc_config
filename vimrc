@@ -152,7 +152,7 @@ onoremap p i{
 " global variable settings -------------------------- {{{
 "autocomplete(YouCompleteMe)
 let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_python_binary_path = 'python'
+let g:ycm_python_binary_path = 'python3'
 "至少三个字符触发
 let g:ycm_min_num_of_chars_for_completion = 3
 "关掉preview
@@ -167,7 +167,7 @@ let g:pydiction_menu_height = 20
 let g:nerdtree_tabs_open_on_console_startup=0
 
 "按python3标准检测
-let g:pymode_python = 'python'
+let g:pymode_python = 'python3'
 let g:pymode_rope = 0
 
 let g:ag_working_path_mode="r"
@@ -200,16 +200,16 @@ let g:syntastic_javascript_checkers = ['eslint']
 " }}}
 
 "python with virtualenv support
-py << EOF
-import os.path
-import sys
-import vim
-if 'VIRTUA_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  sys.path.insert(0, project_base_dir)
-  activate_this = os.path.join(project_base_dir,'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
+" py << EOF
+" import os.path
+" import sys
+" import vim
+" if 'VIRTUA_ENV' in os.environ:
+"   project_base_dir = os.environ['VIRTUAL_ENV']
+"   sys.path.insert(0, project_base_dir)
+"   activate_this = os.path.join(project_base_dir,'bin/activate_this.py')
+"   execfile(activate_this, dict(__file__=activate_this))
+" EOF
 
 "it would be nice to set tag files by the active virtualenv here
 ":set tags=~/mytags "tags for ctags and taglist
