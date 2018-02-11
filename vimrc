@@ -285,8 +285,8 @@ augroup END
 " html file settings ----------------------- {{{
 augroup html
     autocmd!
-    autocmd FileType html setlocal shiftwidth=2 tabstop=2 textwidth=0 nowrap
-    autocmd FileType jinjia setlocal shiftwidth=2 tabstop=2 textwidth=0 nowrap
+    autocmd FileType html setlocal shiftwidth=4 tabstop=4 textwidth=0 nowrap
+    autocmd FileType jinjia setlocal shiftwidth=4 tabstop=4 textwidth=0 nowrap
 augroup END
 " }}}
 
