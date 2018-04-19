@@ -23,6 +23,8 @@ Plugin 'godlygeek/tabular'
 " Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'suan/vim-instant-markdown'
 " Plugin 'vimwiki/vimwiki'
+Plugin 'Rykka/riv.vim'
+Plugin 'Rykka/InstantRst'
 
 "python sytax checker
 Plugin 'nvie/vim-flake8'
