@@ -1,6 +1,6 @@
 # vimrc_config
 
-vim 配置文件，支持python，js, makedown
+vim 配置文件，支持python，js, markdown
 
 ### 使用注意：
 
