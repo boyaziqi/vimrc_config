@@ -31,14 +31,14 @@ Plugin 'nvie/vim-flake8'
 "Plugin 'vim-scripts/Pydiction'
 Plugin 'vim-scripts/indentpython.vim'
 "Plugin 'fisadev/vim-isort'
-"Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 Plugin 'Glench/Vim-Jinja2-Syntax'
-
 "auto-completion stuff
 Plugin 'Valloric/YouCompleteMe'
 "Plugin 'klen/rope-vim'
 Plugin 'ShowTrailingWhitespace'
-Plugin 'python-mode/python-mode'
+" Plugin 'python-mode/python-mode'
+" Plugin 'pylint.vim'
 
 Plugin 'tmhedberg/SimpylFold'
 
@@ -66,11 +66,14 @@ filetype plugin indent on    " enables filetype detection
 
 " option settings ---------------- {{{
 set guifont=Monaco:h11
+if has('python3')
+      silent! python3 1
+endif
 
 " molokai背景色
 let g:rehash256 = 1
+" let g:molokai_original = 1
 let base16colorspace=256
-
 "custom keys
 let mapleader=","
 let maplocalleader=","
@@ -125,6 +128,8 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 "给选中的部分加引号
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 vnoremap <leader>" ma<esc>`<i"<esc>`>a"<esc>
+nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
+vnoremap <leader>' ma<esc>`<i'<esc>`>a'<esc>
 noremap <F5> :Tlist<CR>
 nnoremap <F8> :TagbarToggle<CR>
 nnoremap <C-l> <C-w><C-l>
@@ -155,6 +160,7 @@ onoremap p i{
 "autocomplete(YouCompleteMe)
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_python_binary_path = 'python3'
+let g:ycm_server_python_interpreter = '/usr/local/bin/python3'
 "至少三个字符触发
 let g:ycm_min_num_of_chars_for_completion = 3
 "关掉preview
@@ -170,6 +176,7 @@ let g:nerdtree_tabs_open_on_console_startup=0
 
 "按python3标准检测
 let g:pymode_python = 'python3'
+let g:pymode_lint_checkers = ['pylint', 'pyflakes', 'pep8', 'mccabe']
 let g:pymode_rope = 0
 
 let g:ag_working_path_mode="r"
@@ -200,6 +207,9 @@ let g:airline_symbols.whitespace = 'Ξ'
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:syntastic_javascript_checkers = ['eslint']
 " }}}
+
+" nvie / vim-flake8
+let g:flake8_show_in_file=1
 
 "python with virtualenv support
 " py << EOF
