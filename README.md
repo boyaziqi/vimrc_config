@@ -1,6 +1,7 @@
 # vimrc_config
 
 vim 配置文件，支持python，js, markdown
+Vimscript的语法和使用可以学习[笨发放学习Vimscript](https://www.kancloud.cn/kancloud/learn-vimscript-the-hard-way/49321)
 
 ### 使用注意：
 
